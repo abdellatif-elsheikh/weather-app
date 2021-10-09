@@ -54,7 +54,7 @@ img {
 
 .container {
     width: 1140px;
-    max-width: 95%;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -113,7 +113,7 @@ img {
 
 .header {
     flex-direction: column;
-    height: 100vh;
+    min-height: calc(100vh - 136.2px);
     background: url("https://source.unsplash.com/random?city") no-repeat center center/cover;
     padding: 50px 0;
     font-size: 1.4rem;
@@ -228,8 +228,24 @@ img {
 }
 
 
-@media screen and (max-width: 879px) {
+@media screen and (max-width: 955px) {
     .card-wrapper{
         grid-template-columns: 1fr;
+
+        .icon.firstDay{
+            width: 120px;
+        }
+    }
+    .info-body {
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .first.tempreture {
+        font-size: 54px !important;
+    }
+    .icon.firstDay{
+        width: 90px !important;
     }
 }

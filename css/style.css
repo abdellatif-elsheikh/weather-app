@@ -56,7 +56,7 @@ img {
 
 .container {
   width: 1140px;
-  max-width: 95%;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -131,7 +131,7 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
+  min-height: calc(100vh - 136.2px);
   background: url("https://source.unsplash.com/random?city") no-repeat center center/cover;
   padding: 50px 0;
   font-size: 1.4rem;
@@ -259,10 +259,25 @@ img {
   background: #323544;
 }
 
-@media screen and (max-width: 879px) {
+@media screen and (max-width: 955px) {
   .card-wrapper {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+  }
+  .card-wrapper .icon.firstDay {
+    width: 120px;
+  }
+  .info-body {
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .first.tempreture {
+    font-size: 54px !important;
+  }
+  .icon.firstDay {
+    width: 90px !important;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -62,6 +62,18 @@ function fillDataWithLoop(nodeList, data){
     })
 }
 
+// customize date to get all days dynamically
+function customizeDate(incDay, dayName,date,monthName ){
+    const d = new Date();
+    const day = incDay ? d.getDate()+incDay: d.getDate();
+    const month = d.getMonth()+1;
+    const year = d.getFullYear();
+    const customDate = new Date(`${month}/${day}/${year}`).toString();
+    dayName = dayName ? dayName.innerHTML = customDate.slice(0,3): null;
+    monthName = monthName ? monthName.innerHTML = customDate.slice(4,7): null;
+    date = date ? date.innerHTML = customDate.slice(8,10): null;
+}
+
 /**
  * end helper functions
  **/
@@ -97,6 +109,19 @@ const fillCardBody = (data)=>{
     fillDataWithLoop(thirdDay, Object.values(data[2]));
 }
 
+function fillCardHead(){
+    const dayName = document.querySelectorAll('.dayName');
+    // first card elements
+    const dayDate = document.querySelector('.day-date');
+    const monthName = document.querySelector('.month-name');
+    customizeDate(0,dayName[0], dayDate, monthName);
+    // second card
+    customizeDate(1,dayName[1]);
+    // third card
+    customizeDate(2,dayName[2]);
+    
+}
+
 
 // fire all functions
 async function perfomAction(){
@@ -107,7 +132,8 @@ async function perfomAction(){
         .then((allData)=>{
             fillCardBody(allData)
         });
-    })
+    });
+    fillCardHead()
 }
 perfomAction()
 /**
